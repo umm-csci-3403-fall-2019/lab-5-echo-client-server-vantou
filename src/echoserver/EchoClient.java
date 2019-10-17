@@ -34,8 +34,6 @@ public class EchoClient {
 
       // Close the socket when we're done reading from it
       socket.close();
-      input.close();
-      output.close();
 
     // Provide some minimal error handling.
     } catch (ConnectException ce) {
