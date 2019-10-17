@@ -30,6 +30,7 @@ teardown() {
   rm -f echoserver/*.class
   javac echoserver/EchoServer.java
   java echoserver.EchoServer &
+  sleep 1
   cd ..
 
   cd test/sampleBin
@@ -46,6 +47,7 @@ teardown() {
   javac echoserver/EchoServer.java
   java echoserver.EchoServer &
   cd ..
+  sleep 1
 
   cd test/sampleBin
   java echoserver.EchoClient < ../etc/words.txt > "$BATS_TMPDIR"/words.txt
@@ -60,6 +62,7 @@ teardown() {
   rm -f echoserver/*.class
   javac echoserver/EchoServer.java
   java echoserver.EchoServer &
+  sleep 1
   cd ..
 
   cd test/sampleBin
