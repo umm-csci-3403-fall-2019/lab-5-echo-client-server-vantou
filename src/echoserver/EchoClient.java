@@ -19,19 +19,23 @@ public class EchoClient {
       // Connect to the server
       Socket socket = new Socket(server, portNumber);
 
-      byte[] singleByte;
+      int singleByte;
       // Get the input stream so we can read from that socket
       InputStream input = socket.getInputStream();
-      //BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+      OutputStream output = socket.getOutputStream();
 
-      // Print all the input we receive from the server
-      //String line;
       while ((singleByte = System.in.read()) != -1) {
-        singleByte.flush();
+        output.write(singleByte);
+        output.flush();
+        //input.read();
+        System.out.write(input.read());
+        System.out.flush();
       }
 
       // Close the socket when we're done reading from it
       socket.close();
+      input.close();
+      output.close();
 
     // Provide some minimal error handling.
     } catch (ConnectException ce) {
